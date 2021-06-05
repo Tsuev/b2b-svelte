@@ -4,13 +4,14 @@
     import { onMount } from 'svelte';
     import { isOpen, order } from '../../stores/OrderStore'
 
-    let col = [];
+    let col = []
     let open;
     
     onMount(() => order.subscribe(v => col = v))
     onMount(() => isOpen.subscribe(v => open = v))
 
     let actionSidebar = () => open = !open
+
 </script>
 
 <style>
