@@ -1,14 +1,5 @@
 <script>
-    import Card from '../components/Card/Card.svelte'
+    import Catalog from '../container/Catalog/Catalog.svelte'
 </script>
 
-<div class="row">
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-</div>
+<Catalog/>

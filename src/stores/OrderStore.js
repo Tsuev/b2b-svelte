@@ -101,6 +101,28 @@ export const order = writable([
           },
         ],
       },
+      {
+        client: "Турпал Бертаев",
+        order_num: 1,
+        price: 20000,
+        order_date: "22.12.2021",
+        after_days: 2,
+        products: [
+          {
+            category: "Духовой шкаф",
+            title: "FH-100",
+            amount: 2,
+            state: "Подтвержден",
+            history: [
+              {
+                status: "Заявка получена",
+                style: "bg-primary",
+                date: "22.12.2021",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 

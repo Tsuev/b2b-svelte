@@ -25924,4 +25924,6 @@ div.dataTables_wrapper span.select-item {
 .sw-theme-arrows.sw-dark > .nav .nav-link.danger:after {
     border-left-color: #d9534f;
 }
-
+.client-regime{
+    background-color: #00531d !important;
+}

@@ -5,20 +5,31 @@
   import { tree } from '../../stores/CatalogStore'
   import { onMount } from "svelte";
   import { navigateTo } from 'svelte-router-spa'
+  import { regime } from '../../stores/AppStore'
 
-  let node, tab = [];
-  onMount(() => {tree.subscribe(v => node = v); tabs.subscribe(v => tab = v)})
+  let node
+  let tab = [];
+  let mode;
+
+  onMount(() => {
+    tree.subscribe(v => node = v) 
+    tabs.subscribe(v => tab = v)
+    regime.subscribe(v => mode = v)
+  })
+
 </script>
 
 <style>
   li{
     font-size: 0.875rem;
   }
+
+
 </style>
 
 <nav id="sidebar" class="sidebar">
   <div class="sidebar-content js-simplebar" data-simplebar="init">
-    <div class="simplebar-wrapper" style="margin: 0px;">
+    <div class="simplebar-wrapper m-0 {!mode ? 'client-regime' : null}">
       <div class="simplebar-height-auto-observer-wrapper">
         <div class="simplebar-height-auto-observer" />
       </div>

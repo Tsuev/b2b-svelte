@@ -1,7 +1,9 @@
+<script>
+    export let mode;
+</script>
+
 <style>
-    img{
-        max-width: 50%;
-    }
+    img{max-width: 50%}
 </style>
 
 <div class="col-6 col-lg-4 col-xxl-2 px-2">
@@ -12,10 +14,14 @@
             <span class='text-muted'>Духовые шкафы</span>
         </div>
         <div class="card-body pt-0">
-            <h4 class='text-success'>Опт. 40 000 руб.</h4>
-            <h4 class='text-success'>Розн. 45 000 руб.</h4>
+            {#if mode}
+                <h4 class='text-success'>Опт. 40 000 руб.</h4>
+                <h4 class='text-success'>Розн. 45 000 руб.</h4>
+            {:else}
+                <h4 class='text-success'>Цена 45 000 руб.</h4> 
+            {/if}
             <div class="d-flex justify-content-center mt-4">
-                <button class="btn btn-primary mx-auto">Подробнее</button>
+                <button class="btn btn-primary mx-auto" data-bs-toggle="modal" data-bs-target="#centeredModalPrimary">Подробнее</button>
             </div>
         </div>
     </div>

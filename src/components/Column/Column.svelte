@@ -3,9 +3,7 @@
 
     export let item = [];
     export let actionSidebar;
-    export let getOrderInfo;
     
-
 </script>
 
 <style>

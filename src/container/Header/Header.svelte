@@ -2,20 +2,24 @@
   import Search from "../Search/Search.svelte";
   import User from "../../components/User/User.svelte";
   import Cart from "../../components/Cart/Cart.svelte";
-  import { isAuth } from '../../stores/AppStore'
+  import Regime from "../../components/Regime/Regime.svelte";
+  import { isAuth, regime } from '../../stores/AppStore'
   import { sum, cart } from '../../stores/CartStore'
   import { onMount } from "svelte";
   
   let basket = [];
   let total;
   let quantity;
+  let mode;
 
   let logout = () => { $isAuth = false }
-  
+  let changeMode = () => {$regime = !$regime}
+
   onMount(() => {
     sum.subscribe( v => total = v )
     cart.subscribe( v => basket = v )
     cart.subscribe( v => quantity = v.length )
+    regime.subscribe( v => mode = v )
     basket.map(item => sum.set( total + item.price ))
   })
   
@@ -34,7 +38,8 @@
 
   <div class="navbar-collapse collapse">
     <ul class="navbar-nav navbar-align">
-      <Cart {total} {quantity}/>
+      <Regime {mode} {changeMode}/>
+      <Cart {total} {quantity} {mode}/>
       <User {logout}/>
     </ul>
   </div>
