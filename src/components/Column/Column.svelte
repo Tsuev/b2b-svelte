@@ -1,7 +1,11 @@
 <script>
-    import Request from './Request.svelte'
+    import OrderCard from './OrderCard.svelte'
+
     export let item = [];
     export let actionSidebar;
+    export let getOrderInfo;
+    
+
 </script>
 
 <style>
@@ -21,33 +25,17 @@
         background-color: rgba(255, 255, 255, 0);
     }
 
-    /* .card-body{
-        overflow-y: scroll;
-    } */
-
-    /* .card-body::-webkit-scrollbar {
-        width: 5px;
-        background-color: rgba(26, 24, 47, 0.15);
-        border-radius: 5px;
-        height: 7px;
-        position: relative;
-    }  
-    .card-body::-webkit-scrollbar-thumb {
-        background: #72b6ff;
-        border-radius: 5px;
-    }  */
 </style>
 
-
-    <div class="card mx-3">
-        <div class="card-header p-0">
-            <span class="mb-0 text-dark">{item.title} ({item.order.length})</span>
-        </div>
-        <div class="card-body p-0 mt-3 mx-2">
-            <div class="wrap">
-                {#each item.order as orders}
-                    <Request {actionSidebar} {orders}/> 
-                {/each}
-            </div>
+<div class="card mx-3">
+    <div class="card-header p-0">
+        <span class="mb-0 text-dark">{item.title} ({item.order.length})</span>
+    </div>
+    <div class="card-body p-0 mt-3">
+        <div class="wrap">
+            {#each item.order as item}
+                <OrderCard {actionSidebar} {item}/> 
+            {/each}
         </div>
     </div>
+</div>

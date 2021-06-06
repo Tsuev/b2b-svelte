@@ -4,14 +4,16 @@
     import { onMount } from 'svelte';
     import { isOpen, order } from '../../stores/OrderStore'
 
-    let col = []
+    let col = [];
     let open;
     
-    onMount(() => order.subscribe(v => col = v))
-    onMount(() => isOpen.subscribe(v => open = v))
+    onMount(() => {
+        order.subscribe(v => col = v)
+        isOpen.subscribe(v => open = v)
+    })  
+
 
     let actionSidebar = () => open = !open
-
 </script>
 
 <style>
@@ -36,7 +38,7 @@
 
 <div class="colums-container">
     {#each col as item}
-        <Columns {actionSidebar} {item}/>
+        <Columns {actionSidebar} {item} />
     {/each}
 </div>
 <Sidebar {open} {actionSidebar}/>
